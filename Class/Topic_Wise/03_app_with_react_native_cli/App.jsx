@@ -16,7 +16,6 @@
                 -> Variable Value: C:\Users\<user>\AppData\Local\Android\Sdk
     Step 7) Create New React Native Project
                 -> npx react-native init <Project_Name>
-                -> npm react-native init <Project_Name>
                 -> npx react-native init <project_name> --template react-native-template-typescript (using typescript)
                         -> https://reactnative.dev/docs/typescript
     Step 8) put emulator in env : C:\Users\<user>\AppData\Local\Android\Sdk\emulator

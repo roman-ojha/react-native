@@ -11,6 +11,26 @@ import Header from './components/Header';
 import TodoItem from './components/TodoItem';
 import AddTodo from './components/AddTodo';
 
+/*
+  -> NOTE: when we will create the project using expo cli then icon come as default from expo
+    -> https://docs.expo.dev/guides/icons/
+  -> React Native CLI:
+      -> Install Package:
+          -> https://github.com/oblador/react-native-vector-icons
+          -> https://oblador.github.io/react-native-vector-icons/
+      -> update on IOS by locking at the documentation
+      -> update in :
+          -> android/app/build.gradle
+            -> apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+            -> implementation project(':react-native-vector-icons')
+          -> android/settings.gradle
+            -> include ':react-native-vector-icons'
+            -> project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+      -> Make build:
+      -> Add Icon on code:
+          -> for this project we had added icon in 'TodoItem' component
+*/
+
 const App = () => {
   const [todos, setTodos] = useState([
     {text: 'buy coffee', key: '1'},

@@ -8,4 +8,4 @@
 
 // AppRegistry.registerComponent(appName, () => App);
 
-import './Topic_Wise/05_State_Hook/index';
+import './Topic_Wise/06_View_Text_and_Styles/index';

@@ -1,51 +1,29 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
-
-/*
-  *) Touchable:
-    -> we have see that we can touch button component and pass onPress property on button but we can do that in any other component except some of them
-    -> In Touchable we have different kind of component like:
-      -> https://reactnative.dev/docs/touchableopacity
-      1) TouchableOpacity
-*/
+import {StyleSheet, View, Text, FlatList} from 'react-native';
+import Header from './components/Header';
 
 const App = () => {
-  const [people, setPeople] = useState([
-    {name: 'shaun', id: '1'},
-    {name: 'yoshi', id: '2'},
-    {name: 'mario', id: '3'},
-    {name: 'luigi', id: '4'},
-    {name: 'peach', id: '5'},
-    {name: 'toad', id: '6'},
-    {name: 'bowser', id: '7'},
+  const [todos, setTodos] = useState([
+    {text: 'buy coffee', key: '1'},
+    {text: 'create an app', key: '2'},
+    {text: 'play on the switch', key: '3'},
   ]);
-
-  const pressHandler = id => {
-    console.log(id);
-    setPeople(prevPeople => {
-      return prevPeople.filter(person => person.id !== id);
-    });
-  };
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={people}
-        renderItem={({item}) => {
-          return (
-            <TouchableOpacity
-              onPress={() => {
-                /* now ever component that is inside Touchable we can press on it */
-                // we can also style this component which was not possible on Button
-                pressHandler(item.id);
-              }}>
-              <Text style={styles.item}>{item.name}</Text>
-            </TouchableOpacity>
-          );
-        }}
-        keyExtractor={item => item.id}
-        numColumns={2}
-      />
+      {/* header */}
+      <Header />
+      <View style={styles.content}>
+        {/* todo form */}
+        <View style={styles.list}>
+          <FlatList
+            data={todos}
+            renderItem={({item}) => (
+              <Text style={{color: 'black'}}>{item.text}</Text>
+            )}
+          />
+        </View>
+      </View>
     </View>
   );
 };
@@ -53,16 +31,13 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 40,
-    paddingHorizontal: 20,
+    backgroundColor: '#fff',
   },
-  item: {
-    marginTop: 24,
-    padding: 30,
-    backgroundColor: 'pink',
-    fontSize: 24,
-    marginHorizontal: 10,
-    marginTop: 24,
+  content: {
+    padding: 40,
+  },
+  list: {
+    marginTop: 20,
   },
 });
 

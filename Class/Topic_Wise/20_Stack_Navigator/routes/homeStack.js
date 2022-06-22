@@ -26,4 +26,5 @@ function MyHomeStack() {
 }
 
 // Now here we have to wrap 'HomeStack' into NavigationContainer
+// NOTE: we have use 'HomeStack' for navigating only 'Home' & 'ReviewDetail' component but we can navigate to 'About' Component using 'HomeStack' because we have not register it as the component in stack navigator
 export default MyHomeStack;

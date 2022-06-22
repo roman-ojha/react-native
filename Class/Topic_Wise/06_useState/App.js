@@ -11,19 +11,26 @@ const App = () => {
   return (
     <View style={styles.body}>
       <Text style={styles.text}>{name}</Text>
-      <Button title="Change Name" onPress={onClickHandler}></Button>
+      <View style={styles.buttonContainer}>
+        <Button title="Change Name" onPress={onClickHandler} />
+        {/* React Native also comes with Button Component */}
+        {/* Where title is the name inside the button */}
+        {/* NOTE: We can add a style property to 'Button' */}
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   body: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%',
-    height: '100%',
   },
   text: {},
+  buttonContainer: {
+    marginTop: 20,
+  },
 });
 
 export default App;

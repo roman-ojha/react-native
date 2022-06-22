@@ -18,17 +18,15 @@ const App = () => {
   };
 
   const submitHandler = todo => {
-    setTodos(prevTodos => {
-      return [{text: todo, key: `${prevTodos.length + 1}`}, ...prevTodos];
-    });
+      setTodos(prevTodos => {
+        return [{text: todo, key: `${prevTodos.length + 1}`}, ...prevTodos];
+});
   };
 
   return (
     <View style={styles.container}>
-      {/* header */}
       <Header />
       <View style={styles.content}>
-        {/* todo form */}
         <AddTodo submitHandler={submitHandler} />
         <View style={styles.list}>
           <FlatList

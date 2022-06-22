@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, FlatList} from 'react-native';
+import {StyleSheet, View, FlatList} from 'react-native';
 import Header from './components/Header';
 import TodoItem from './components/TodoItem';
+import AddTodo from './components/AddTodo';
 
 const App = () => {
   const [todos, setTodos] = useState([
@@ -16,12 +17,19 @@ const App = () => {
     });
   };
 
+  const submitHandler = todo => {
+    setTodos(prevTodos => {
+      return [{text: todo, key: `${prevTodos.length + 1}`}, ...prevTodos];
+    });
+  };
+
   return (
     <View style={styles.container}>
       {/* header */}
       <Header />
       <View style={styles.content}>
         {/* todo form */}
+        <AddTodo submitHandler={submitHandler} />
         <View style={styles.list}>
           <FlatList
             data={todos}

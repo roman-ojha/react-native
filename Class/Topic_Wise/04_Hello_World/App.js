@@ -7,6 +7,8 @@ import {
   Text,
   useColorScheme,
   View,
+  Button,
+  Linking,
 } from 'react-native';
 // here we will import 'react' and 'react-native' that the app use
 // we are import component that app use through 'react-native'
@@ -23,7 +25,12 @@ import {
 const App = () => {
   return (
     <View style={styles.body}>
-      <Text style={styles.text}>Hello World</Text>
+      <Text style={styles.text}>Hello World</Text>{' '}
+      <Button
+        title="Open Youtube"
+        onPress={() => {
+          Linking.openURL('https://youtube.com/');
+        }}></Button>
     </View>
   );
 };

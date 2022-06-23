@@ -3,7 +3,7 @@ import {StyleSheet, Button, TextInput, View, Text} from 'react-native';
 import {globalStyles} from '../styles/global';
 import {Formik} from 'formik';
 
-const ReviewForm = () => {
+const ReviewForm = ({addReview}) => {
   return (
     <View style={globalStyles.container}>
       <Formik
@@ -13,10 +13,13 @@ const ReviewForm = () => {
           body: '',
           rating: '',
         }}
-        onSubmit={values => {
+        onSubmit={(values, actions) => {
           // this function will going to call when we will submit this form
           // 'values' represent the different values at the time of being submitted from different inputs
-          console.log(values);
+          addReview(values);
+
+          //   actions contain different kind of method but right now we will reset the form after add into it:
+          actions.resetForm();
         }}>
         {formikProps => {
           // now this will be the render function

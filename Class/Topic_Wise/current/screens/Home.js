@@ -10,6 +10,7 @@ import {
 import {globalStyles} from '../styles/global';
 import Card from '../shared/Card';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import ReviewForm from './ReviewForm';
 
 const Home = ({navigation}) => {
   const [reviews, setReviews] = useState([
@@ -33,14 +34,14 @@ const Home = ({navigation}) => {
   return (
     <View style={globalStyles.container}>
       <Modal visible={modalOpen} animationType="slide">
-        <MaterialIcons
-          name="close"
-          size={24}
-          style={{...styles.modalToggle, ...styles.modalClose}}
-          onPress={() => setModalOpen(false)}
-        />
         <View style={styles.modalContent}>
-          <Text style={globalStyles.titleText}>Hello from the model:</Text>
+          <MaterialIcons
+            name="close"
+            size={24}
+            style={{...styles.modalToggle, ...styles.modalClose}}
+            onPress={() => setModalOpen(false)}
+          />
+          <ReviewForm />
         </View>
       </Modal>
       <MaterialIcons

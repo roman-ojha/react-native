@@ -8,6 +8,8 @@ const HomeStack = createStackNavigator();
 function MyHomeStack() {
   return (
     <HomeStack.Navigator
+      // because we are using 'Drawer' Navigation we don't need to have to wrap our Stack navigator with 'NavigationContainer'
+      // rather we will nest 'HomeStack' & 'AboutStack' using Drawer Navigator
       screenOptions={{
         headerStyle: {
           backgroundColor: '#eee',

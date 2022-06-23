@@ -31,6 +31,7 @@ const Home = ({navigation}) => {
             <Card>
               <Text style={globalStyles.titleText}>{item.title}</Text>
             </Card>
+            {/* now here we will wrap component of our own onto the card component now this card component will get the child component that we wrap using 'Card' and pass is as props.children */}
           </TouchableOpacity>
         )}
       />

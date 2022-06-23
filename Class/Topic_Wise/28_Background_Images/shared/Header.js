@@ -13,6 +13,7 @@ const Header = ({navigation, title}) => {
     <ImageBackground
       style={styles.header}
       source={require('../../../assets/game_bg.png')}>
+      {/* -> ImageBackground component will surrounds or wrap whatever it wants inside it and apply a background image  to all of that stuff */}
       <MaterialIcons
         name="menu"
         color="#333"

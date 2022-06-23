@@ -8,21 +8,34 @@ const ReviewForm = ({addReview}) => {
     <View style={globalStyles.container}>
       <Formik
         initialValues={{
+          // this will take all the initial value of the field
           title: '',
           body: '',
           rating: '',
         }}
         onSubmit={(values, actions) => {
+          // this function will going to call when we will submit this form
+          // 'values' represent the different values at the time of being submitted from different inputs
           addReview(values);
+
+          //   actions contain different kind of method but right now we will reset the form after add into it:
           actions.resetForm();
         }}>
         {formikProps => {
+          // now this will be the render function
+          // 'formikProps' are provided inside this function automatically by formik
+          // and those props are function for handling the change of different form field, so when user start to type into the form field we can call the function that can handle the change
+          // we also also access the current value on that props
+          // also the submission handler
+
           return (
             <View>
               <TextInput
                 style={globalStyles.input}
                 placeholder="Review title"
                 placeholderTextColor="#b5b3b3"
+                // now while user typing formic will handle those change
+                // handleChange('<what_value_we_want_to_change'')
                 onChangeText={formikProps.handleChange('title')}
                 value={formikProps.values.title}
               />
@@ -47,6 +60,7 @@ const ReviewForm = ({addReview}) => {
                 color="maroon"
                 onPress={formikProps.handleSubmit}
               />
+              {/* now here 'handleSubmit' function will handle the submit and call 'onSubmit' function that we define before */}
             </View>
           );
         }}

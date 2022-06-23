@@ -39,6 +39,8 @@ const Home = ({navigation}) => {
           style={{...styles.modalToggle, ...styles.modalClose}}
           onPress={() => setModalOpen(false)}
         />
+        {/* so Modal can be either visible or not visible */}
+        {/* so if it is true then by default it will take the entire screen */}
         <View style={styles.modalContent}>
           <Text style={globalStyles.titleText}>Hello from the model:</Text>
         </View>

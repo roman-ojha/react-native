@@ -2,6 +2,24 @@ import React from 'react';
 import {StyleSheet, Button, TextInput, View, Text} from 'react-native';
 import {globalStyles} from '../styles/global';
 import {Formik} from 'formik';
+import * as yup from 'yup';
+
+const reviewSchema = yup.object({
+  // inside here we will define our schema
+  // so key value pair inside this schema will going to be the form field
+  title: yup.string().required().min(4),
+  // title must be string and required and the minimum length is 4
+  body: yup.string().required().min(8),
+  rating: yup
+    .string()
+    .required()
+    .test('is-num-1-5', 'Rating must be a number 1 -5', val => {
+      // val : rating value
+      return parseInt(val) < 6 && parseInt(val) > 0;
+    }),
+  // test return true or false, if true validated, if false not validated
+  // test('<title>','<feedback>')
+});
 
 const ReviewForm = ({addReview}) => {
   return (
@@ -12,6 +30,8 @@ const ReviewForm = ({addReview}) => {
           body: '',
           rating: '',
         }}
+        // now here we have to pass the validation schema that we have just created above
+        validationSchema={reviewSchema}
         onSubmit={(values, actions) => {
           addReview(values);
           actions.resetForm();

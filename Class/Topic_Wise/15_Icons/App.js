@@ -31,6 +31,15 @@ import AddTodo from './components/AddTodo';
           -> for this project we had added icon in 'TodoItem' component
 */
 
+/*
+  *) Custom Icons:
+      -> read this docs to add custom icons to
+      -> https://www.reactnative.guide/12-svg-icons-using-react-native-vector-icons/12.1-creating-custom-iconset.html
+      -> NOTE: in newer version of react native while linking fonts we don't need to use 'link' command rather we can use:
+      -> npx react-native-asset
+      -> this will copy the required font's into android and ios platform folder
+*/
+
 const App = () => {
   const [todos, setTodos] = useState([
     {text: 'buy coffee', key: '1'},

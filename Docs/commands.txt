@@ -1,0 +1,2 @@
+-> npx react-native-asset
+    -> (to include/link all the font's assets to the required android and ios folder)
